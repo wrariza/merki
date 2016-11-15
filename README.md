@@ -1,5 +1,5 @@
 # tiendas
-tiendas y productos de barrrio
+Tiendas y productos de barrrio
 
 INIT PROYECT 
 
