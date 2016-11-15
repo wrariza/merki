@@ -3,5 +3,5 @@ tiendas y productos de barrrio
 
 INIT PROYECT 
 
-yarn install
+yarn install &&
 yarn run start 
