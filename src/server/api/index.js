@@ -1,19 +1,26 @@
 import express from 'express'
+import multer from 'multer'
+import fs from 'fs'
 import Store from 'src/server/models/'
 
+const upload = multer({dest: 'uploads/'})
 const router = express.Router();
 
 
 //Create store
-router.post('/stores', (req, res) => {
+router.post('/stores', upload.single('img'), (req, res, next) => {
 	let store = new Store();
 	let latitude = req.body.latitude
 	let longitude = req.body.longitude
+	let path = req.file.path
+	let typeImg = req.file.mimetype
 
 	store.name = req.body.name
 	store.address = req.body.address
 	store.location = [longitude, latitude]
 	store.description = req.body.description
+	store.img.data = fs.readFileSync(path)
+	store.img.contentType = typeImg
 
 	store.save((err) =>{
 		if(err){

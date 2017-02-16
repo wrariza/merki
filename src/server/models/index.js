@@ -15,4 +15,3 @@ let StoreSchema = new mongoose.Schema({
 })
 
 export default mongoose.model('Store', StoreSchema)
-
