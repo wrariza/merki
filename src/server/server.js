@@ -1,20 +1,19 @@
 import express from 'express'
-import multer from 'multer'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 
-import api from 'src/server/api'
+import api from './api'
 
-const app = express();
+const app = express()
 mongoose.connect('mongodb://localhost/apptienda')
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
-app.use(express.static('public'));
+app.use(express.static('public'))
 
 app.use('/api', api)
 
 app.listen(3000, () => {
-  console.log("Start server in listen port 3000")
+  console.log('Start server in listen port 3000')
 })
