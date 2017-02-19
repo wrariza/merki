@@ -4,6 +4,9 @@ logs
 npm-debug.log*
 yarn.lock
 
+#uploads
+uploads
+
 # Runtime data
 pids
 *.pid
