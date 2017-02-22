@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "ava": {
+    "babel": "inherit"
+  },
   "dependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.0.0",
@@ -30,10 +33,12 @@
     "eslint-plugin-react": "^6.10.0",
     "nock": "^9.0.6",
     "nyc": "^10.1.2",
+    "tap-nyan": "^1.1.0",
     "webpack": "^1.13.3"
   },
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text ava",
+    "test": "nyc --reporter=html --reporter=text ava --tap | tap-nyan",
+    "test:watch": "ava --tap | tap-nyan",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "start": "webpack && NODE_PATH=. babel-node src/server/server --presets es2015"
   }
