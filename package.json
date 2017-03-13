@@ -40,6 +40,7 @@
     "test": "nyc --reporter=html --reporter=text ava --tap | tap-nyan",
     "test:watch": "ava --tap | tap-nyan",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "start": "webpack && NODE_PATH=. babel-node src/server/server --presets es2015"
+    "start": "webpack && NODE_PATH=. babel-node src/server/server --presets es2015",
+    "postinstall": "webpack -p"
   }
 }
