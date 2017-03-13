@@ -6,15 +6,9 @@ import api from './api'
 
 const app = express()
 const port = process.env.PORT || 5000
-const connectMongo = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/apptienda'
+const connectMongo = process.env.MONGODB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/apptienda'
 
-mongoose.connect(connectMongo, (err, res) => {
-  if (err) {
-    console.log('ERROR connecting to: ' + connectMongo + '. ' + err)
-  } else {
-    console.log('Succeeded connected to: ' + connectMongo)
-  }
-})
+mongoose.connect(connectMongo)
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
