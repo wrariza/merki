@@ -3,11 +3,11 @@ import multer from 'multer'
 import fs from 'fs'
 import Store from './../models/'
 
-const router = express.Router()
 const upload = multer({ dest: 'uploads/' })
+const storesRouter = express.Router()
 
 
-router.post('/stores', upload.single('img'), (error, req, res, next) => {
+storesRouter.post('/stores', upload.single('img'), (error, req, res, next) => {
   const store = new Store()
   store.name = req.body.name
   store.address = req.body.adresss
@@ -26,7 +26,7 @@ router.post('/stores', upload.single('img'), (error, req, res, next) => {
 })
 
 
-router.get('/stores', (req, res) => {
+storesRouter.get('/stores', (req, res) => {
   console.log('GET /stores')
   Store.find({}, (err, docs) => {
     if (err) {
@@ -36,4 +36,4 @@ router.get('/stores', (req, res) => {
   })
 })
 
-export default router
+export default storesRouter

@@ -14,4 +14,4 @@ const StoreSchema = new mongoose.Schema({
   description: String,
 })
 
-export default mongoose.model('Store', StoreSchema)
+module.exports = mongoose.model('Store', StoreSchema)
